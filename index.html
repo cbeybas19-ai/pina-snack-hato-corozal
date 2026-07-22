@@ -1,47 +1,203 @@
-<section class="py-5 bg-light" id="tienda">
-  <div class="container">
-    <h2 class="text-center mb-5">🛒 Nuestra Tienda</h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piña Snack - Hato Corozal</title>
     
-    <div class="row g-4">
-      
-      <!-- Producto 1 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100 shadow-sm">
-          <img src="imagenes/snack-100g.jpg" class="card-img-top" alt="Snack 100g">
-          <div class="card-body">
-            <h5 class="card-title">Snack de Piña - Bolsa 100g</h5>
-            <p class="card-text">Porción individual. Ideal para merienda escolar.</p>
-            <h4 class="text-success">$4.500</h4>
-          </div>
-          <div class="card-footer">
-            <button class="btn btn-success w-100" onclick="comprar('100g')">Comprar por Nequi</button>
-          </div>
-        </div>
-      </div>
+    <!-- Bootstrap CSS (Para el diseño moderno) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (Para los íconos de carrito, billetera, etc.) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Estilos Personalizados integrados -->
+    <style>
+        :root {
+            --pina-green: #2e7d32; /* Verde inspirado en la corona de la piña */
+            --pina-yellow: #fbc02d; /* Amarillo piña */
+            --pina-light: #fff9c4;
+            --nequi-color: #4a148c; /* Morado Nequi */
+        }
+        body {
+            background-color: #f4f7f6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            background-color: var(--pina-green);
+        }
+        .navbar-brand {
+            color: white !important;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .store-section {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 4rem 2rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #ffffff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+            background-color: #e9ecef;
+        }
+        .card-title {
+            color: var(--pina-green);
+            font-weight: 800;
+        }
+        .price {
+            color: #d84315; 
+            font-weight: 800;
+        }
+        .btn-nequi {
+            background-color: var(--nequi-color);
+            color: white;
+            border: none;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: background-color 0.2s;
+        }
+        .btn-nequi:hover {
+            background-color: #380b6b;
+            color: white;
+        }
+        .badge-natural {
+            background-color: var(--pina-yellow);
+            color: #212529;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-weight: 700;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .payment-info {
+            background-color: var(--pina-light);
+            border-radius: 15px;
+            border-left: 6px solid var(--pina-yellow);
+        }
+    </style>
+</head>
+<body>
 
-      <!-- Producto 2 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100 shadow-sm">
-          <img src="imagenes/snack-250g.jpg" class="card-img-top" alt="Snack 250g">
-          <div class="card-body">
-            <h5 class="card-title">Snack de Piña - Bolsa 250g</h5>
-            <p class="card-text">Formato familiar. Más económico.</p>
-            <h4 class="text-success">$9.500</h4>
-          </div>
-          <div class="card-footer">
-            <button class="btn btn-success w-100" onclick="comprar('250g')">Comprar por Nequi</button>
-          </div>
+    <!-- Barra de navegación simple -->
+    <nav class="navbar navbar-expand-lg shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-brightness-high-fill text-warning"></i> Piña Snack - Hato Corozal
+            </a>
         </div>
-      </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <div class="container">
+        <section class="store-section" id="tienda">
+            
+            <!-- Encabezado de la tienda -->
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3" style="color: var(--pina-green);">
+                    <i class="bi bi-basket2-fill text-warning"></i> Nuestra Tienda
+                </h2>
+                <p class="lead text-muted">Snacks de piña 100% natural, sin químicos ni conservantes. ¡Directo del campo a tu manos!</p>
+            </div>
+            
+            <div class="row g-5 justify-content-center">
+                
+                <!-- Producto 1: 100g -->
+                <div class="col-md-6 col-lg-5">
+                    <div class="card h-100 position-relative">
+                        <span class="badge badge-natural px-3 py-2 rounded-pill">Merienda Ideal</span>
+                        <!-- Si no encuentra la imagen local, pone un recuadro gris temporal -->
+                        <img src="imagenes/snack-100g.jpg" class="card-img-top" alt="Snack de Piña 100g" onerror="this.src='https://via.placeholder.com/500x300?text=Foto+Snack+100g'">
+                        <div class="card-body text-center p-4">
+                            <h4 class="card-title mb-1">Snack de Piña</h4>
+                            <h6 class="text-secondary mb-3">Bolsa 100g</h6>
+                            <p class="card-text text-muted">Porción individual perfecta para la lonchera escolar o recargar energías en el trabajo.</p>
+                            <h2 class="price my-4">$4.500</h2>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-4 px-4">
+                            <button class="btn btn-nequi w-100 py-3 fs-5" onclick="comprar('100g', '4.500')">
+                                <i class="bi bi-phone-vibrate"></i> Pagar con Nequi
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2: 250g -->
+                <div class="col-md-6 col-lg-5">
+                    <div class="card h-100 position-relative">
+                        <span class="badge badge-natural px-3 py-2 rounded-pill">Más Económico</span>
+                        <img src="imagenes/snack-250g.jpg" class="card-img-top" alt="Snack de Piña 250g" onerror="this.src='https://via.placeholder.com/500x300?text=Foto+Snack+250g'">
+                        <div class="card-body text-center p-4">
+                            <h4 class="card-title mb-1">Snack de Piña</h4>
+                            <h6 class="text-secondary mb-3">Bolsa 250g</h6>
+                            <p class="card-text text-muted">Formato familiar. Ideal para compartir en casa y tener siempre una opción saludable a la mano.</p>
+                            <h2 class="price my-4">$9.500</h2>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-4 px-4">
+                            <button class="btn btn-nequi w-100 py-3 fs-5" onclick="comprar('250g', '9.500')">
+                                <i class="bi bi-phone-vibrate"></i> Pagar con Nequi
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información de Pago -->
+            <div class="row justify-content-center mt-5 pt-4">
+                <div class="col-md-8 col-lg-6">
+                    <div class="payment-info p-4 p-md-5 text-center shadow-sm">
+                        <h4 class="mb-4 text-dark fw-bold">
+                            <i class="bi bi-wallet2" style="color: var(--pina-green);"></i> Forma de Pago
+                        </h4>
+                        <p class="fs-5 mb-3 text-secondary">
+                            Manejamos transferencias exclusivas a través de <strong>Nequi</strong>
+                        </p>
+                        <div class="d-inline-block bg-white px-5 py-3 rounded-pill shadow-sm mb-4 border">
+                            <span class="fs-3 fw-bolder" style="color: var(--nequi-color);">310 2240854</span>
+                        </div>
+                        <div class="alert alert-success d-flex align-items-center mb-0 text-start" role="alert">
+                            <i class="bi bi-whatsapp fs-3 me-3"></i>
+                            <div>
+                                Una vez realizada la transferencia, envíanos el comprobante por WhatsApp para confirmar tu pedido y despacharlo.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
     </div>
 
-    <div class="mt-5 text-center">
-      <h5>💰 Forma de Pago</h5>
-      <p class="fs-5">
-        Solo aceptamos transferencias por <strong>Nequi</strong><br>
-        <strong>Número:</strong> <span class="text-primary fw-bold">310 2240854</span>
-      </p>
-      <p class="text-muted">Una vez hagas la transferencia, envíanos el comprobante por WhatsApp para confirmar tu pedido.</p>
-    </div>
-  </div>
-</section>
+    <!-- Script interactivo: Conecta el botón directamente con el WhatsApp del proyecto -->
+    <script>
+        function comprar(presentacion, precio) {
+            // Número oficial del proyecto Piña Snack
+            const numeroNequi = "573102240854"; 
+            
+            // Mensaje automático que se escribirá en WhatsApp
+            const mensaje = `¡Hola! Vengo de la página web. Quiero comprar el Snack de Piña deshidratada presentación de ${presentacion} por el valor de $${precio}. Ya voy a realizar el pago por Nequi.`;
+            
+            // Crea el enlace de WhatsApp y lo abre en una nueva pestaña
+            const url = `https://wa.me/${numeroNequi}?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+    
+    <!-- Bootstrap JS (Necesario para que funcionen los componentes interactivos de Bootstrap) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+                  </html>
