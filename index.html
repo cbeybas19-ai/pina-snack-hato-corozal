@@ -68,9 +68,10 @@
             min-height: 90vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(to right, rgba(27, 94, 32, 0.9), rgba(76, 175, 80, 0.7)), url('https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=1920&q=80') center/cover;
+            /* Fondo actualizado a un cultivo de piñas */
+            background: linear-gradient(to right, rgba(27, 94, 32, 0.9), rgba(76, 175, 80, 0.7)), url('https://images.unsplash.com/photo-1490885578174-acda8905c2c6?auto=format&fit=crop&w=1920&q=80') center/cover;
             color: white;
-            padding-top: 80px; /* Espacio para el menú */
+            padding-top: 80px; 
         }
         .hero h1 {
             font-size: 4rem;
@@ -113,7 +114,7 @@
             height: 100%;
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
             border-bottom: 5px solid var(--verde-claro);
-            transition: transform 0.3s;
+            transition: transform 0.3s ease;
         }
         .info-card:hover { transform: translateY(-10px); }
         .info-icon {
@@ -153,7 +154,7 @@
             color: var(--verde-oscuro);
         }
         
-        /* Botones */
+        /* Botones y corrección de parpadeo */
         .btn-principal {
             background-color: var(--amarillo-pina);
             color: var(--texto-oscuro);
@@ -161,18 +162,33 @@
             padding: 15px 30px;
             border-radius: 50px;
             border: none;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            backface-visibility: hidden; /* Evita parpadeos en animaciones */
         }
         .btn-principal:hover {
             background-color: #f5b000;
             transform: scale(1.05);
         }
+        
         .btn-nequi {
-            background-color: var(--nequi); color: white;
-            font-weight: 600; padding: 15px; border-radius: 15px;
-            width: 100%; border: none; transition: 0.3s;
+            background-color: var(--nequi); 
+            color: white;
+            font-weight: 600; 
+            padding: 15px; 
+            border-radius: 15px;
+            width: 100%; 
+            border: none; 
+            transition: all 0.3s ease;
+            backface-visibility: hidden; /* Corrección del parpadeo al hacer hover */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .btn-nequi:hover { background-color: #380b6b; color: white; }
+        .btn-nequi:hover { 
+            background-color: #380b6b; 
+            color: white; 
+            transform: scale(1.02);
+        }
 
         /* --- Botón Flotante WhatsApp --- */
         .whatsapp-float {
@@ -242,12 +258,13 @@
             </div>
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1589984662646-e7b2e4962f18?auto=format&fit=crop&w=800&q=80" alt="Cultivo de Piña" class="img-fluid rounded-4 shadow">
+                    <!-- Imagen cambiada a una piña real -->
+                    <img src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=800&q=80" alt="Cultivo de Piña" class="img-fluid rounded-4 shadow">
                 </div>
                 <div class="col-lg-6">
                     <h3 class="fw-bold mb-4" style="color: var(--verde-oscuro);">El Problema que Resolvemos</h3>
-                    <p class="fs-5 text-muted">El departamento de Casanare es un gran productor de piña, especialmente la variedad <strong>Piña GOLD</strong>, con rendimientos de hasta 35 toneladas por hectárea[cite: 1].</p>
-                    <p class="fs-5 text-muted">Sin embargo, en Hato-Corozal, las difíciles vías de acceso durante el invierno causan que hasta un <strong>25% de la producción local se pierda</strong> por sobre maduración[cite: 1]. Nosotros intervenimos comprando esa fruta a un precio justo para transformarla y evitar el desperdicio[cite: 1].</p>
+                    <p class="fs-5 text-muted">El departamento de Casanare es un gran productor de piña, especialmente la variedad <strong>Piña GOLD</strong>, con rendimientos de hasta 35 toneladas por hectárea.</p>
+                    <p class="fs-5 text-muted">Sin embargo, en Hato-Corozal, las difíciles vías de acceso durante el invierno causan que hasta un <strong>25% de la producción local se pierda</strong> por sobre maduración. Nosotros intervenimos comprando esa fruta a un precio justo para transformarla y evitar el desperdicio.</p>
                 </div>
             </div>
         </div>
@@ -272,14 +289,14 @@
                     <div class="info-card text-center">
                         <i class="bi bi-droplet-half info-icon"></i>
                         <h4 class="fw-bold">2. Osmo-deshidratación</h4>
-                        <p class="text-muted">Sumergimos la fruta en una solución que extrae el agua por presión osmótica, reduciendo el peso de la fruta en un 80%[cite: 1].</p>
+                        <p class="text-muted">Sumergimos la fruta en una solución que extrae el agua por presión osmótica, reduciendo el peso de la fruta en un 80%.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="info-card text-center">
                         <i class="bi bi-shield-check info-icon"></i>
                         <h4 class="fw-bold">3. Larga Vida Útil</h4>
-                        <p class="text-muted">El resultado es un snack delicioso que dura meses sin necesidad de nevera[cite: 1]. ¡Ideal para la lonchera escolar o la oficina!</p>
+                        <p class="text-muted">El resultado es un snack delicioso que dura meses sin necesidad de nevera. ¡Ideal para la lonchera escolar o la oficina!</p>
                     </div>
                 </div>
             </div>
@@ -291,7 +308,7 @@
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="titulo-seccion">Nuestros Snacks</h2>
-                <p class="lead text-muted">Elige tu presentación favorita. Empaque hermético y liviano fácil de llevar a cualquier parte[cite: 1].</p>
+                <p class="lead text-muted">Elige tu presentación favorita. Empaque hermético y liviano fácil de llevar a cualquier parte.</p>
             </div>
             
             <div class="row g-5 justify-content-center">
@@ -300,7 +317,8 @@
                     <div class="producto-card">
                         <span class="etiqueta-top">Ideal Escolares</span>
                         <div class="overflow-hidden">
-                            <img src="imagenes/snack-100g.jpg" class="producto-img" alt="Snack 100g" onerror="this.src='https://images.unsplash.com/photo-1528825871115-3581a5387915?auto=format&fit=crop&w=600&q=80'">
+                            <!-- Imágenes de respaldo (onerror) actualizadas a piñas -->
+                            <img src="imagenes/snack-100g.jpg" class="producto-img" alt="Snack 100g" onerror="this.src='https://images.unsplash.com/photo-1587883012610-e3df17d41270?auto=format&fit=crop&w=600&q=80'">
                         </div>
                         <div class="p-4 text-center">
                             <h4 class="fw-bold text-dark mb-1">Snack de Piña</h4>
@@ -319,7 +337,8 @@
                     <div class="producto-card">
                         <span class="etiqueta-top bg-warning text-dark">Ahorro Familiar</span>
                         <div class="overflow-hidden">
-                            <img src="imagenes/snack-250g.jpg" class="producto-img" alt="Snack 250g" onerror="this.src='https://images.unsplash.com/photo-1528825871115-3581a5387915?auto=format&fit=crop&w=600&q=80'">
+                            <!-- Imágenes de respaldo (onerror) actualizadas a piñas -->
+                            <img src="imagenes/snack-250g.jpg" class="producto-img" alt="Snack 250g" onerror="this.src='https://images.unsplash.com/photo-1587883012610-e3df17d41270?auto=format&fit=crop&w=600&q=80'">
                         </div>
                         <div class="p-4 text-center">
                             <h4 class="fw-bold text-dark mb-1">Snack de Piña</h4>
